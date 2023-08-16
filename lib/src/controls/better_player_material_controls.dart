@@ -397,69 +397,71 @@ class _BetterPlayerMaterialControlsState
     );
   }
 
-  Widget _buildHitAreaClickableButton(
-      {Widget? icon, required void Function() onClicked}) {
-    return Container(
-      constraints: const BoxConstraints(maxHeight: 80.0, maxWidth: 80.0),
-      child: BetterPlayerMaterialClickableWidget(
-        onTap: onClicked,
-        child: Align(
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.circular(48),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8),
-              child: Stack(
-                children: [icon!],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+  // Widget _buildHitAreaClickableButton(
+  //     {Widget? icon, required void Function() onClicked}) {
+  //   return Container(
+  //     constraints: const BoxConstraints(maxHeight: 80.0, maxWidth: 80.0),
+  //     child: BetterPlayerMaterialClickableWidget(
+  //       onTap: onClicked,
+  //       child: Align(
+  //         child: Container(
+  //           decoration: BoxDecoration(
+  //             color: Colors.transparent,
+  //             borderRadius: BorderRadius.circular(48),
+  //           ),
+  //           child: Padding(
+  //             padding: const EdgeInsets.all(8),
+  //             child: Stack(
+  //               children: [icon!],
+  //             ),
+  //           ),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Widget _buildSkipButton() {
-    return _buildHitAreaClickableButton(
-      icon: Icon(
+    return InkWell(
+      child: Icon(
         _controlsConfiguration.skipBackIcon,
         size: 24,
         color: _controlsConfiguration.iconsColor,
       ),
-      onClicked: skipBack,
+      onTap: skipBack,
     );
   }
 
   Widget _buildForwardButton() {
-    return _buildHitAreaClickableButton(
-      icon: Icon(
+    return InkWell(
+      child: Icon(
         _controlsConfiguration.skipForwardIcon,
         size: 24,
         color: _controlsConfiguration.iconsColor,
       ),
-      onClicked: skipForward,
+      onTap: skipForward,
     );
   }
 
   Widget _buildReplayButton(VideoPlayerController controller) {
     final bool isFinished = isVideoFinished(_latestValue);
-    return _buildHitAreaClickableButton(
-      icon: isFinished
+    return InkWell(
+      child: isFinished
           ? Icon(
               Icons.replay,
               size: 42,
               color: _controlsConfiguration.iconsColor,
             )
-          : Icon(
-              controller.value.isPlaying
-                  ? _controlsConfiguration.pauseIcon
-                  : _controlsConfiguration.playIcon,
-              size: 42,
-              color: _controlsConfiguration.iconsColor,
-            ),
-      onClicked: () {
+          : _controlsConfiguration.enablePlayPause
+              ? Icon(
+                  controller.value.isPlaying
+                      ? _controlsConfiguration.pauseIcon
+                      : _controlsConfiguration.playIcon,
+                  size: 42,
+                  color: _controlsConfiguration.iconsColor,
+                )
+              : SizedBox(),
+      onTap: () {
         if (isFinished) {
           if (_latestValue != null && _latestValue!.isPlaying) {
             if (_displayTapped) {
