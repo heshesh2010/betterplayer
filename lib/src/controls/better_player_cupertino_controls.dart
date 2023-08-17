@@ -21,6 +21,7 @@ class BetterPlayerCupertinoControls extends StatefulWidget {
     required this.onControlsVisibilityChanged,
     required this.controlsConfiguration,
     Key? key,
+    void Function()? onVideoTap,
   }) : super(key: key);
 
   @override

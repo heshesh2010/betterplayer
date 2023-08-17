@@ -14,7 +14,7 @@ void main() {
     () {
       setUp(
         () => {
-          TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+          TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
               .setMockMethodCallHandler(
                   mockMethodChannel.channel, mockMethodChannel.handle)
         },
@@ -22,14 +22,14 @@ void main() {
 
       test("Create controller without data source", () {
         final BetterPlayerMockController betterPlayerMockController =
-            BetterPlayerMockController(const BetterPlayerConfiguration());
+            BetterPlayerMockController(BetterPlayerConfiguration());
         expect(betterPlayerMockController.betterPlayerDataSource, null);
         expect(betterPlayerMockController.videoPlayerController, null);
       });
 
       test("Setup data source in controller", () async {
         final BetterPlayerMockController betterPlayerMockController =
-            BetterPlayerMockController(const BetterPlayerConfiguration());
+            BetterPlayerMockController(BetterPlayerConfiguration());
         await betterPlayerMockController.setupDataSource(
             BetterPlayerDataSource.network(
                 BetterPlayerTestUtils.forBiggerBlazesUrl));
@@ -120,8 +120,7 @@ void main() {
       test("full screen and auto play should work", () async {
         final BetterPlayerMockController betterPlayerMockController =
             BetterPlayerMockController(
-          const BetterPlayerConfiguration(
-              fullScreenByDefault: true, autoPlay: true),
+          BetterPlayerConfiguration(fullScreenByDefault: true, autoPlay: true),
         );
         betterPlayerMockController.videoPlayerController =
             MockVideoPlayerController();

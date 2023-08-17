@@ -18,11 +18,13 @@ class BetterPlayerMaterialControls extends StatefulWidget {
 
   ///Controls config
   final BetterPlayerControlsConfiguration controlsConfiguration;
+  void Function()? onVideoTap = () {};
 
-  const BetterPlayerMaterialControls({
+  BetterPlayerMaterialControls({
     Key? key,
     required this.onControlsVisibilityChanged,
     required this.controlsConfiguration,
+    required this.onVideoTap,
   }) : super(key: key);
 
   @override
@@ -362,12 +364,15 @@ class _BetterPlayerMaterialControlsState
     if (!betterPlayerController!.controlsEnabled) {
       return const SizedBox();
     }
-    return Container(
-      child: Center(
-        child: AnimatedOpacity(
-          opacity: controlsNotVisible ? 0.0 : 1.0,
-          duration: _controlsConfiguration.controlsHideTime,
-          child: _buildMiddleRow(),
+    return InkWell(
+      onTap: widget.onVideoTap,
+      child: Container(
+        child: Center(
+          child: AnimatedOpacity(
+            opacity: controlsNotVisible ? 0.0 : 1.0,
+            duration: _controlsConfiguration.controlsHideTime,
+            child: _buildMiddleRow(),
+          ),
         ),
       ),
     );

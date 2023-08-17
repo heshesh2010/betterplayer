@@ -18,7 +18,7 @@ class BetterPlayer extends StatefulWidget {
   }) =>
       BetterPlayer(
         controller: BetterPlayerController(
-          betterPlayerConfiguration ?? const BetterPlayerConfiguration(),
+          betterPlayerConfiguration ?? BetterPlayerConfiguration(),
           betterPlayerDataSource:
               BetterPlayerDataSource(BetterPlayerDataSourceType.network, url),
         ),
@@ -30,7 +30,7 @@ class BetterPlayer extends StatefulWidget {
   }) =>
       BetterPlayer(
         controller: BetterPlayerController(
-          betterPlayerConfiguration ?? const BetterPlayerConfiguration(),
+          betterPlayerConfiguration ?? BetterPlayerConfiguration(),
           betterPlayerDataSource:
               BetterPlayerDataSource(BetterPlayerDataSourceType.file, url),
         ),

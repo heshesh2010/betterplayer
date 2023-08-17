@@ -2,6 +2,8 @@ import 'package:better_player/better_player.dart';
 import 'package:better_player_example/model/video_list_data.dart';
 import 'package:flutter/material.dart';
 
+import '../reusable_video_list/reusable_video_list_page.dart';
+
 class VideoListWidget extends StatefulWidget {
   final VideoListData? videoListData;
 
@@ -16,11 +18,25 @@ class _VideoListWidgetState extends State<VideoListWidget> {
   BetterPlayerConfiguration? betterPlayerConfiguration;
   BetterPlayerListVideoPlayerController? controller;
 
+  Future _navigateToPage(Widget routeWidget) {
+    return Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => routeWidget),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
     controller = BetterPlayerListVideoPlayerController();
-    betterPlayerConfiguration = BetterPlayerConfiguration(autoPlay: true);
+    betterPlayerConfiguration = BetterPlayerConfiguration(
+      autoPlay: true,
+      placeholder: InkWell(
+        onTap: () {
+          _navigateToPage(ReusableVideoListPage());
+        },
+      ),
+    );
   }
 
   @override

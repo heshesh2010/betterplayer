@@ -14,8 +14,7 @@ void main() {
   });
 
   setUp(() {
-    _mockController =
-        BetterPlayerMockController(const BetterPlayerConfiguration());
+    _mockController = BetterPlayerMockController(BetterPlayerConfiguration());
   });
 
   testWidgets(
