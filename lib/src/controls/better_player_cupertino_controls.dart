@@ -86,22 +86,22 @@ class _BetterPlayerCupertinoControlsState
 
     _wasLoading = isLoading(_latestValue);
     final controlsColumn = Column(children: <Widget>[
-      _buildTopBar(
-        backgroundColor,
-        iconColor,
-        barHeight,
-        buttonPadding,
-      ),
+      // _buildTopBar(
+      //   backgroundColor,
+      //   iconColor,
+      //   barHeight,
+      //   buttonPadding,
+      // ),
       if (_wasLoading)
         Expanded(child: Center(child: _buildLoadingWidget()))
       else
         _buildHitArea(),
       _buildNextVideoWidget(),
-      _buildBottomBar(
-        backgroundColor,
-        iconColor,
-        barHeight,
-      ),
+      // _buildBottomBar(
+      //   backgroundColor,
+      //   iconColor,
+      //   barHeight,
+      // ),
     ]);
     return GestureDetector(
       onTap: () {
@@ -276,27 +276,7 @@ class _BetterPlayerCupertinoControlsState
 
   Expanded _buildHitArea() {
     return Expanded(
-      child: InkWell(
-        onTap: widget.onVideoTap,
-        child: GestureDetector(
-          onTap: _latestValue != null && _latestValue!.isPlaying
-              ? () {
-                  if (controlsNotVisible == true) {
-                    cancelAndRestartTimer();
-                  } else {
-                    _hideTimer?.cancel();
-                    changePlayerControlsNotVisible(true);
-                  }
-                }
-              : () {
-                  _hideTimer?.cancel();
-                  changePlayerControlsNotVisible(false);
-                },
-          child: Container(
-            color: Colors.transparent,
-          ),
-        ),
-      ),
+      child: InkWell(onTap: widget.onVideoTap),
     );
   }
 

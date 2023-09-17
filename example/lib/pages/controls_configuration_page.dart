@@ -31,6 +31,7 @@ class _ControlsConfigurationPageState extends State<ControlsConfigurationPage> {
 
     BetterPlayerConfiguration betterPlayerConfiguration =
         BetterPlayerConfiguration(
+            placeholderOnTop: true,
             aspectRatio: 16 / 9,
             fit: BoxFit.contain,
             controlsConfiguration: controlsConfiguration);
