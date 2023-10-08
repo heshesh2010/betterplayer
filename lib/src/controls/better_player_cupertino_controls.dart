@@ -97,11 +97,11 @@ class _BetterPlayerCupertinoControlsState
       else
         _buildHitArea(),
       _buildNextVideoWidget(),
-      // _buildBottomBar(
-      //   backgroundColor,
-      //   iconColor,
-      //   barHeight,
-      // ),
+      _buildBottomBar(
+        backgroundColor,
+        iconColor,
+        barHeight,
+      ),
     ]);
     return GestureDetector(
       onTap: () {
