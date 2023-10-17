@@ -86,12 +86,12 @@ class _BetterPlayerCupertinoControlsState
 
     _wasLoading = isLoading(_latestValue);
     final controlsColumn = Column(children: <Widget>[
-      // _buildTopBar(
-      //   backgroundColor,
-      //   iconColor,
-      //   barHeight,
-      //   buttonPadding,
-      // ),
+      _buildTopBar(
+        backgroundColor,
+        iconColor,
+        barHeight,
+        buttonPadding,
+      ),
       if (_wasLoading)
         Expanded(child: Center(child: _buildLoadingWidget()))
       else
