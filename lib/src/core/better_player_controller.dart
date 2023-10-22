@@ -36,6 +36,11 @@ class BetterPlayerController {
   ///Controls configuration
   Function()? get onVideoTap => _onVideoTap;
 
+//onVideoTap setter
+  set onVideoTap(Function()? onVideoTap) {
+    _onVideoTap = onVideoTap;
+  }
+
   ///List of files to delete once player disposes.
   final List<File> _tempFiles = [];
 
