@@ -148,7 +148,7 @@ class _BetterPlayerWithControlsState extends State<BetterPlayerWithControls> {
           if (!placeholderOnTop) _buildPlaceholder(betterPlayerController),
           //here
           _buildControls(context, betterPlayerController,
-              BetterPlayerController.onVideoTap),
+              betterPlayerController.onVideoTap),
         ],
       ),
     );
