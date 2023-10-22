@@ -16,10 +16,6 @@ class _NormalPlayerPageState extends State<NormalPlayerPage> {
   void initState() {
     BetterPlayerConfiguration betterPlayerConfiguration =
         BetterPlayerConfiguration(
-      onVideoTap: () {
-// showtoast message
-        print("fdfsdfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfsdfsdfdsf");
-      },
       controlsConfiguration: BetterPlayerControlsConfiguration(
         enableFullscreen: false,
         enableSkips: false,
