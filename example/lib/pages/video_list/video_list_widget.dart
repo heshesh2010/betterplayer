@@ -1,5 +1,6 @@
 import 'package:better_player/better_player.dart';
 import 'package:better_player_example/model/video_list_data.dart';
+import 'package:better_player_example/pages/reusable_video_list/test.dart';
 import 'package:flutter/material.dart';
 
 import '../reusable_video_list/reusable_video_list_page.dart';
@@ -33,7 +34,7 @@ class _VideoListWidgetState extends State<VideoListWidget> {
       autoPlay: true,
       placeholder: InkWell(
         onTap: () {
-          _navigateToPage(ReusableVideoListPage());
+          _navigateToPage(VideoPlayerScreen());
         },
       ),
     );

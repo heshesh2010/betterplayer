@@ -22,7 +22,7 @@ class BetterPlayerController {
   static const String _speedParameter = "speed";
   static const String _dataSourceParameter = "dataSource";
   static const String _authorizationHeader = "Authorization";
-  static void Function()? _onVideoTap;
+  // static void Function()? _onVideoTap;
 
   ///General configuration used in controller instance.
   final BetterPlayerConfiguration betterPlayerConfiguration;
@@ -34,12 +34,12 @@ class BetterPlayerController {
   final List<Function(BetterPlayerEvent)?> _eventListeners = [];
 
   ///Controls configuration
-  Function()? get onVideoTap => _onVideoTap;
+  //Function()? get onVideoTap => _onVideoTap;
 
 //onVideoTap setter
-  set onVideoTap(Function()? onVideoTap) {
-    _onVideoTap = onVideoTap;
-  }
+  // set onVideoTap(Function()? onVideoTap) {
+  //   _onVideoTap = onVideoTap;
+  // }
 
   ///List of files to delete once player disposes.
   final List<File> _tempFiles = [];

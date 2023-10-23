@@ -118,7 +118,7 @@ class BetterPlayerConfiguration {
   ///Default value is false.
   final bool useRootNavigator;
 
-  // final void Function()? onVideoTap;
+  final void Function()? onVideoTap;
 
   const BetterPlayerConfiguration({
     this.aspectRatio,
@@ -158,6 +158,7 @@ class BetterPlayerConfiguration {
     this.autoDispose = true,
     this.expandToFill = true,
     this.useRootNavigator = false,
+    this.onVideoTap,
   });
 
   BetterPlayerConfiguration copyWith({
